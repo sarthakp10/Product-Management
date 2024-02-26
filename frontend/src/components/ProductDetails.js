@@ -1,0 +1,13 @@
+const ProductDetails = ({ product }) => {
+    return ( 
+        <div>
+            <h4>{product.srno}</h4>
+            <h3>{product.name}</h3>
+            <p>{product.description}</p>
+            <h2>{product.cost}</h2>
+            <p>{product.createdAt}</p>
+        </div>
+     );
+}
+ 
+export default ProductDetails;
