@@ -5,11 +5,11 @@ const Schema = mongoose.Schema
 const ProdSchema = new Schema({
     srno: {
         type: Number,
-        required: true
+        required: false
     },
     id: {
         type: Number,
-        required: true
+        required: false
     },
     name: {
         type: String,
@@ -21,7 +21,7 @@ const ProdSchema = new Schema({
     },
     img: {
         type: String,
-        required: true
+        required: false
     },
     cost: {
         type: Number,
