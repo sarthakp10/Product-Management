@@ -5,7 +5,7 @@ const ProductDetails = ({ product }) => {
             <img src={product.img} alt="" />
             <h3>{product.name}</h3>
             <p>{product.description}</p>
-            <h2>{product.cost}</h2>
+            <h2>Rs. {product.cost}</h2>
             <p>{product.createdAt}</p>
         </div>
      );

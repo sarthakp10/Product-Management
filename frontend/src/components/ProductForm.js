@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useProdContext } from "../hooks/useProdContext";
 
 const ProductForm = () => {
+    const { dispatch } = useProdContext()
     const [srno, setSrno] = useState(4);
     const [id, setId] = useState(4);
     const [name, setName] = useState('');
@@ -48,6 +50,7 @@ const ProductForm = () => {
             setCost('');
             setDescription('');
             setImg('');
+            dispatch({type: 'CREATE_PRODUCT', payload: json})
             console.log("New product added.");
         }
     }

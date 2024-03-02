@@ -1,19 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import ProductDetails from "../components/ProductDetails";
+import { useProdContext } from "../hooks/useProdContext";
 
 const Home = () => {
-    const [products, setProducts] = useState(null);
+    const {products, dispatch} = useProdContext();
     useEffect(() => {
       const fetchprods = async () => {
         const response = await fetch('/api/products');
         const json = await response.json();
 
         if(response.ok) {
-            setProducts(json);
+            dispatch({type: 'SET_PRODUCTS', payload: json})
         }
       }
       fetchprods();
-    }, [])
+    }, [dispatch])
     return ( 
         <div className="home">
             <div>
