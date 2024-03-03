@@ -25,6 +25,19 @@ const getsingleProd = async (req, res) => {
 const createProd = async (req,res) => {
     const { srno, id, name, description, img, cost } = req.body
     console.log(req.body);
+    let emptyFields = [];
+    if(!name) {
+        emptyFields.push('name');
+    }
+    if(!description) {
+        emptyFields.push('description');
+    }
+    if(!cost) {
+        emptyFields.push('cost');
+    }
+    if(emptyFields.length > 0) {
+        return res.status(400).json({error: 'Please fill the required fields', emptyFields})
+    }
     try {
         const prod = await Product.create({ srno, id, name, description, img, cost });
         res.status(200).json(prod);
