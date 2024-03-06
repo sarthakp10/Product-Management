@@ -15,3 +15,6 @@ When a new product is added to the database from the form created earlier, the n
 
 ### 2 Mar 2024 - Commit 5: Deleting products and Handling Error messages:
 In this commit, we are handling `DELETE` requests from the frontend. I have added another case to the `ProdContext.js` file in which the `filter()` function is used which would filter out the product which is to be deleted. Therefore, we can implement the deleting operation from the frontend using context. In case the user does not fill out all the fields while adding a product, an error message would be displayed below the form, and the required fields would be highlighted. I have also used **TailWind CSS** to change the entire look of the project and make it more enhanced and flexible.
+
+### 6 Mar 2024 - Commit 6: Fetching the details of a single product:
+In case the user wants to have a look at the details of the product that has been added to the database, I have provided a button (a `<Link>` tag, to be more specific) called **View Details** below each product in the home page. On clicking this button, the user would be directed to a Details page `ProductInfo.js`. In this page, we fetch the details of a single product (the product that is selected by the user) using Fetch API. Hence, the name, description, cost and the image uploaded would be visible to the user on this page.

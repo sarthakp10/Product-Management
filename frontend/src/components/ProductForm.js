@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useProdContext } from "../hooks/useProdContext";
 
-const ProductForm = () => {
+const ProductForm = ({ onClose }) => {
     const { dispatch } = useProdContext()
     const [srno, setSrno] = useState(1);
     const [id, setId] = useState(1);
@@ -54,14 +54,14 @@ const ProductForm = () => {
             setCost('');
             setDescription('');
             setImg('');
-            setDispForm(false);
+            onClose();
             dispatch({type: 'CREATE_PRODUCT', payload: json})
             console.log("New product added.");
         }
     }
 
     return ( 
-        <div className={dispForm? '':'hidden'}>
+        <div className="">
             <form onSubmit={handleSubmit} className="absolute animate-slide h-[82%] border-2 shadow-2xl border-gray-200 mt-5 z-20 bg-white rounded-3xl mx-96">
             <h3 className="text-center mt-4 text-4xl font-semibold mb-6 pb-3 border-b-2 border-green-500">Add a new Product</h3>
             <label className="labels">Name of the Product: </label>
@@ -77,14 +77,21 @@ const ProductForm = () => {
             <label className="labels">Image (in PNG format):</label>
             <input type="file" name="" id="" onChange={handleImage} accept="image/png" className="ml-3"/><br />
 
-            <button className="btn flex justify-center items-center mx-auto bg-green-500 w-36 h-10 text-white font-semibold rounded-xl mt-8 px-1">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                </svg>
-                Add Product
-            </button>
+            <div className="flex justify-evenly items-center mx-16">
+                <button className="btn flex justify-center items-center bg-green-500 w-36 h-10 text-white font-semibold rounded-xl mt-8 px-1 scale">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                    Add Product
+                </button>
+                <button onClick={onClose} className="flex border-2 border-green-500 w-28 h-10 mt-8 rounded-xl items-center justify-evenly text-green-500 font-semibold scale">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                    </svg>
+                    Go Back
+                </button>
+            </div>
             {error && <div className="mt-5 ml-6 pl-4 pt-2 bg-red-100 border border-red-500 text-red-500 w-1/2 h-10">{error}</div>}
-
             </form>
         </div>
         

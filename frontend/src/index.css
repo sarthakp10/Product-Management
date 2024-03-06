@@ -32,4 +32,8 @@ code {
   @apply hover:border-2 hover:border-green-500 hover:bg-white hover:text-green-500
 }
 
+.scale {
+  @apply hover:scale-105 duration-300 ease-in-out
+}
+
 

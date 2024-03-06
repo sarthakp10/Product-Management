@@ -16,6 +16,10 @@ export const productsReducer = (state, action) => {
             return {
                 products: state.products.filter(w => w._id !== action.payload._id)
             }
+        case 'SET_SINGLE_PRODUCT':
+            return {
+                products: action.payload
+            }
         default:
             return state;
     }

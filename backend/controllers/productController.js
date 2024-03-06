@@ -9,7 +9,7 @@ const getProds = async (req, res) => {
 
 // GET a single product
 const getsingleProd = async (req, res) => {
-    const { id } = req.params.id;
+    const { id } = req.params;
     if(!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({error: "No product found"});
     }

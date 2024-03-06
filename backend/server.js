@@ -5,7 +5,7 @@ const productRoutes = require('./routes/products');
 const mongoose = require('mongoose');
 
 // Middleware
-app.use(express.json());
+app.use(express.json({ limit: '60mb'}));
 app.use((req, res, next) => {
     console.log(req.path, req.method);
     next();
