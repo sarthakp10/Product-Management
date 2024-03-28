@@ -21,7 +21,7 @@ code {
 }
 
 .labels {
-  @apply ml-6 text-xl font-medium
+  @apply ml-6 md:text-xl font-medium
 }
 
 .inputs {

@@ -17,8 +17,8 @@ const Home = () => {
     }, [dispatch])
     return ( 
         <div className="">
-            <h1 className="text-4xl ml-8 mt-6 font-semibold">Your Products</h1>
-            <div className="grid grid-cols-3 gap-y-8 mt-5 ml-2">
+            <h1 className="text-2xl md:text-4xl ml-8 mt-6 font-semibold">Your Products</h1>
+            <div className="md:grid grid-cols-3 gap-y-8 mt-5 ml-2">
                 {products && products.map(product => (
                     <ProductDetails product = {product} key = {product._id}/>
                 ))}

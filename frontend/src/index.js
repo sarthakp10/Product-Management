@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { ProdContextProvider } from './context/ProdContext';
+import { AuthContextProvider } from './context/AuthContext'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ProdContextProvider>
-      <App />
-    </ProdContextProvider>
+    <AuthContextProvider>
+      <ProdContextProvider>
+        <App />
+      </ProdContextProvider>
+    </AuthContextProvider>
   </React.StrictMode>
 );
 
