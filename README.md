@@ -27,3 +27,6 @@ When a user tries to login or signup, we need to verify if the email and passwor
 
 ### 27 Mar 2024 - Commit 9: Creating Login token and Auth Context:
 Just like the previous commit, I have created a token for login. The process is nearly the same, with the difference being the statics login function, in which the email and password entered are compared with the email and password in the database. I have also created an Authentication context for the project, similar to the context defined for the products earlier. The hook `useAuthContext.js` is used for consuming the context. This context is mainly used for login and logout operations.
+
+### 2 Apr 2024 - Commit 10: Login and Signup Pages:
+In this commit, I have designed the login and signup pages. The login page would only take email and password from the user, whereas the signup page would take the name, contact number, email, password and the confirmed password from the user. The `useSignup.js` file contains the custom **useSignup()** hook. This file also contains all the signup logic, including send the `POST` request to the backend, retrieving the email and the token generated, and storing them into the local storage. The latter is done by the `localStorage.setItem()` function. The `dispatch()` function is used to update the auth context.
