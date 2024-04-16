@@ -6,7 +6,10 @@ const {
     deleteProd,
     updateProd
 } = require('../controllers/productController')
+const requireAuth = require('../middleware/requireAuth')
 const router = express.Router();
+
+router.use(requireAuth)
 
 router.get('/', getProds)
 
