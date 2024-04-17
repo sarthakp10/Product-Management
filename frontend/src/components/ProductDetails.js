@@ -6,9 +6,16 @@ import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 
 const ProductDetails = ({ product }) => {
     const { dispatch } = useProdContext();
+    const { user } = useProdContext()
     const handleClick = async () => {
+        if(!user) {
+            return;
+        }
         const response = await fetch('/api/products/' + product._id, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${user.token}`
+            }
         })
         const json = await response.json()
         if(response.ok) {
