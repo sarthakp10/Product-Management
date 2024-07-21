@@ -9,8 +9,8 @@ const mongoose = require('mongoose');
 app.use(cors(
     {
         origin: ["https://product-management-frontend-pi.vercel.app"],
-        methods: ["POST", "GET"],
-        credentials: true
+        methods: ["POST", "GET", "DELETE"],
+        credential: true
     }
 ));
 
