@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom'
 import { useProdContext } from "../hooks/useProdContext";
+import { useAuthContext } from "../hooks/useAuthContext"
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 // import { useEffect } from 'react';
 // import ProductInfo from "../pages/ProductInfo";
 
 const ProductDetails = ({ product }) => {
     const { dispatch } = useProdContext();
-    const { user } = useProdContext()
+    const { user } = useAuthContext()
     const handleClick = async () => {
         if(!user) {
             return;
@@ -27,7 +28,7 @@ const ProductDetails = ({ product }) => {
         <div>
             <div className="w-[90%] h-full m-auto rounded-2xl bg-white shadow-xl scale pb-4">
             <div className='mt-5'>
-                <h4 className="absolute ml-3 mt-3 text-center bg-green-500 w-8 h-8 py-1 text-gray-100 rounded-full font-bold">{product.srno}</h4>
+                {/* <h4 className="absolute ml-3 mt-3 text-center bg-green-500 w-8 h-8 py-1 text-gray-100 rounded-full font-bold">{product.srno}</h4> */}
                 <img src={product.img} alt="" className="w-full object-cover rounded-2xl max-h-80 h-full"/>
                 <div className="md:flex justify-between mx-8 mt-5">
                     <h3 className="text-xl md:text-2xl font-bold">{product.name}</h3>

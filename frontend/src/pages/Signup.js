@@ -17,8 +17,8 @@ const Signup = () => {
     } 
     return ( 
         <div className=''>
-            <form className='flex flex-col w-1/3 m-auto mt-12 shadow-2xl bg-white rounded-2xl' onSubmit={handleSubmit}>
-                <h3 className='text-4xl font-semibold mx-auto mt-5 border-b-2 w-1/2 text-center pb-2 border-green-500 mb-8'>Sign Up</h3>
+            <form className='flex flex-col mx-4 md:w-1/3 m-auto mt-12 shadow-2xl bg-white rounded-2xl' onSubmit={handleSubmit}>
+                <h3 className='text-3xl md:text-4xl font-semibold mx-auto mt-5 border-b-2 w-1/2 text-center pb-2 border-green-500 mb-8'>Sign Up</h3>
 
                 <label className='labels'>Name</label>
                 <input type="text" className='inputs h-9 w-[65%]' onChange = {(e) => setName(e.target.value)} value = {name}/>
@@ -32,7 +32,7 @@ const Signup = () => {
                 <input type="password" className='inputs h-9 w-[65%]' onChange = {(e) => setConpassword(e.target.value)} value = {conpassword}/>
                 {error && <div className='error w-3/4 pl-2 h-10 pt-2 ml-5'>{error}</div>}
                 <button disabled={isLoading} className='scale btn w-32 mx-auto h-10 my-3 bg-green-500 rounded-xl text-white font-semibold'>Sign Up</button>
-                <div className='flex w-4/5 justify-center text-lg mb-4'>
+                <div className='md:flex w-4/5 justify-center md:text-lg mb-4 text-center m-auto'>
                     <p className='mr-2'>Already have an account?</p>
                     <Link to={'/api/user/login'} className='text-green-500 font-semibold hover:underline hover:opacity-70'>Login</Link>
                 </div>

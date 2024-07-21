@@ -40,4 +40,8 @@ code {
   @apply bg-red-100 border border-red-500 text-red-500
 }
 
+.links {
+  @apply text-white mt-4 text-sm md:text-xl font-semibold hover:border-b-4 border-white h-8 ease-in-out duration-100
+}
+
 

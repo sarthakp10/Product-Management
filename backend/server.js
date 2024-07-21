@@ -1,9 +1,18 @@
 require('dotenv').config()
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const productRoutes = require('./routes/products');
 const userRoutes = require('./routes/users')
 const mongoose = require('mongoose');
+
+app.use(cors(
+    {
+        origin: ["https://product-management-orcin-five.vercel.app"],
+        methods: ["POST", "GET", "DELETE"],
+        credentials: true
+    }
+));
 
 // Middleware
 app.use(express.json({ limit: '60mb'}));

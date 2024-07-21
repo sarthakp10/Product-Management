@@ -1,16 +1,22 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuthContext } from "../hooks/useAuthContext";
 // import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 
 const ProductInfo = () => {
     // const { products, dispatch } = useProdContext();
     const { id } = useParams()
+    const { user } = useAuthContext()
     const [product, setProduct] = useState({});
     useEffect(() => {
         const fetchsingleprod = async () => {
           try {
-            const response = await fetch(`/api/products/${id}`);
+            const response = await fetch(`/api/products/${id}`, {
+              headers: {
+                'Authorization':`Bearer ${user.token}`
+              }
+            });
             const data = await response.json();
             console.log(data);
             setProduct(data)

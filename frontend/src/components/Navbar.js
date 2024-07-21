@@ -32,12 +32,12 @@ const Navbar = () => {
                     <div className='flex items-center justify-center mr-10 w-40'>
                         <button onClick={handleClick2} className='border-2 border-green-600 w-[85%] h-10 rounded-2xl text-md font-semibold text-green-500 bg-gray-100 scale'>Logout</button>
                     </div>
-                    <span>{user.email}</span>
+                    {/* <span>{user.email}</span> */}
                 </div>)}
                 {!user && (
-                    <div>
-                        <Link to={'/api/user/login'}>Login</Link>
-                        <Link to={'/api/user/signup'}>Sign Up</Link>
+                    <div className='w-1/2 md:w-1/4 flex justify-evenly'>
+                        <Link to={'/api/user/login'} className='links'>Login</Link>
+                        <Link to={'/api/user/signup'} className='links'>Sign Up</Link>
                     </div>
                 )}
             </div>

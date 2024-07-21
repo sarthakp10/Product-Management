@@ -3,7 +3,8 @@ const Product = require('../models/ProductSchema')
 
 // GET all products
 const getProds = async (req, res) => {
-    const prods = await Product.find({}).sort({createdAt: -1});
+    const user_id = req.user._id
+    const prods = await Product.find({user_id}).sort({createdAt: -1});
     res.status(200).json(prods);
 }
 
@@ -39,7 +40,8 @@ const createProd = async (req,res) => {
         return res.status(400).json({error: 'Please fill the required fields', emptyFields})
     }
     try {
-        const prod = await Product.create({ srno, id, name, description, img, cost });
+        const user_id = req.user._id
+        const prod = await Product.create({ srno, id, name, description, img, cost, user_id });
         res.status(200).json(prod);
     } 
     catch (error) {
